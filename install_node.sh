@@ -1,6 +1,6 @@
 node_uri=https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
 node_version=node-v16.16.0-linux-x64
-linux_user=supermoykadev
+linux_user=$USER
 node_export_bin='export NODEJS_HOME=/opt/node/bin'
 node_export_export='export PATH=$NODEJS_HOME:$PATH'
 config_path=/home/$linux_user/
