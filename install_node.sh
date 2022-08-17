@@ -1,3 +1,5 @@
+sudo apt-get install zsh -y
+
 node_uri=https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
 node_version=node-v16.16.0-linux-x64
 linux_user=$USER
