@@ -1,0 +1,8 @@
+## Problema com docker-compose up, 
+
+failed to solve with frontend dockerfile.v0: failed to create LLB definition: rpc error: code = Unknown desc = error getting credentials - err: exit status 255, out: ``
+
+## Solução, executar as seguintes linhas no terminal
+
+export DOCKER_BUILDKIT=0
+export COMPOSE_DOCKER_CLI_BUILD=0
