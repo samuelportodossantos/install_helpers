@@ -1,5 +1,5 @@
 alias nodei="nodeinstall"
-
+## example:  nodei "18.17.0"
 nodeinstall() {
     local node_version="$1"
     local node_uri="https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz"
