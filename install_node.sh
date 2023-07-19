@@ -1,25 +1,28 @@
-sudo apt-get install zsh -y
+alias nodei="nodeinstall"
 
-node_uri=https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
-node_version=node-v16.16.0-linux-x64
-linux_user=$USER
-node_export_bin='export NODEJS_HOME=/opt/node/bin'
-node_export_export='export PATH=$NODEJS_HOME:$PATH'
-config_path=/home/$linux_user/
+nodeinstall() {
+    local node_version="$1"
+    local node_uri="https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz"
+    local node_folder="node-v${node_version}-linux-x64"
+    local node_export_bin='export NODEJS_HOME=/opt/node/bin'
+    local node_export_export='export PATH=$NODEJS_HOME:$PATH'
 
-wget $node_uri
-tar -xvf $node_version".tar.xz"
-rm -f $node_version".tar.xz"
-mv $node_version node
-sudo chmod -R 755 /opt
-sudo rm -rf /opt/node
-sudo mv  node /opt/
+    wget $node_uri
+    tar -xvf "${node_folder}.tar.xz"
+    rm -f "${node_folder}.tar.xz"
+    mv "${node_folder}" node
+    sudo chmod -R 755 /opt
+    sudo rm -rf /opt/node
+    sudo mv node /opt/
 
-sudo echo $node_export_bin >> $config_path'.profile'
-sudo echo $node_export_export >> $config_path'.profile'
+    echo $node_export_bin >> $HOME/.profile
+    echo $node_export_export >> $HOME/.profile
 
-sudo echo $node_export_bin >> $config_path'.bashrc'
-sudo echo $node_export_export >> $config_path'.bashrc'
+    echo $node_export_bin >> $HOME/.bashrc
+    echo $node_export_export >> $HOME/.bashrc
 
-sudo echo $node_export_bin >> $config_path'.zshrc'
-sudo echo $node_export_export >> $config_path'.zshrc'
+    echo $node_export_bin >> $HOME/.zshrc
+    echo $node_export_export >> $HOME/.zshrc
+
+    . ~/.zshrc
+}
